@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #fcf5e9;
+    --container-normal: 1100px;
+    --container-wide: 1400px;
+    --container-narrow: 900px
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
@@ -24,22 +31,22 @@ img {
 
 /* Utility classes */
 .bg-primary {
-    background: #fcf5e9;
+    background: var(--primary-color);
 }
 
 /* Container */
 .container {
-    max-width: 1100px;
+    max-width: var(--container-normal);
     margin: 0 auto;
     padding: 0 0.5rem;
 }
 
 .container-lg {
-    max-width: 1400px;
+    max-width: var(--container-wide);
 }
 
 .container-sm {
-    max-width: 900px;
+    max-width: var(--container-narrow);
 }
 
 /* Header */
@@ -67,11 +74,11 @@ img {
 }
 
 .header .main-menu a:hover {
-    background: #fcf5e9;
+    background: var(--primary-color);
 }
 
 .current {
-    background: #fcf5e9;
+    background: var(--primary-color);
     font-weight: 600;
 }
 
@@ -90,9 +97,57 @@ img {
     font-weight: normal;
 }
 
+.gallery-flex {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery-item {
+    width: calc(33.333% - 20px);
+    border-radius: 8px;
+}
+
+.gallery-item img {
+    border-radius: 10px;
+}
+
+.gallery-item:hover {
+    opacity: 0.9;
+}
+
+/*Footer */
+.footer {
+    border-top: 1px solid #aaa;
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+}
+
+.footer .footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer img {
+    width: 120px;
+    height: 35px;
+}
+
+.footer h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer a {
+    margin: 0.2rem;
+}
+
 /* Media queries */
 @media(max-width: 768px) {
-    .header .header-flex {
+    .header .header-flex, 
+    .footer .footer-flex {
         flex-direction: column;
         gap: 1.5rem;
     }
@@ -103,5 +158,13 @@ img {
 
     .hero h2 {
         font-size: 1.8rem;
+    }
+
+    .gallery-item {
+        width: calc(50% - 20px);
+    }
+
+    .footer .footer-flex {
+        text-align: center;
     }
 }
